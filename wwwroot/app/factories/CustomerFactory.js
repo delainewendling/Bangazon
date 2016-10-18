@@ -38,5 +38,29 @@ app.factory("CustomerFactory", ($q, $http) => {
         });
     };
 
-    return { getCustomers, getSingleCustomer, newCustomer };
+    let editCustomer = (customerId, customerObj) => {
+        return $q((resolve, reject) => {
+            $http.put(`/customers/${customerId}`, angular.toJson(customerObj))
+                .success((customerData) => {
+                    resolve(customerData);
+                })
+                .error((error) => {
+                    reject(error);
+                });
+        });
+    };
+
+    let deleteCustomer = (customerId) => {
+        return $q((resolve, reject) => {
+            $http.delete(`/customers/${customerId}`)
+                .success((customerData) => {
+                    resolve(customerData);
+                })
+                .error((error) => {
+                    reject(error);
+                });
+        });
+    };
+
+    return { getCustomers, getSingleCustomer, newCustomer, deleteCustomer, editCustomer };
 });

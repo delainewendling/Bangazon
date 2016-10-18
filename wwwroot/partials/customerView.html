@@ -2,7 +2,12 @@
     <h1> Customers </h1>
 </div>
 <div ng-repeat="customer in customers">
-    {{customer.firstName}} {{customer.lastName}}
+    <div ng-if="!editMode"> {{customer.customerId}} {{customer.firstName}} {{customer.lastName}} </div>
+    <input type="text" placeholder="First Name" ng-model="editedCustomer.firstName" ng-if="editMode && customerId === customer.customerId">
+    <input type="text" placeholder="First Name" ng-model="editedCustomer.lastName" ng-if="editMode && customerId === customer.customerId">
+    <button ng-if="editMode && customerId === customer.customerId" ng-click="submitCustomerChanges(customer.customerId)"> Submit Changes </button>
+    <button ng-click="editCustomer(customer.customerId, $index)" ng-if="!editMode"> Edit Customer </button>
+    <button ng-click="deleteCustomer(customer.customerId, $index)" ng-if="!editMode"> Delete Customer </button>
 </div>
 
 <input type="text" placeholder="First Name" ng-model="customer.firstName">
