@@ -5,10 +5,10 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Bangazon.Data;
 
-namespace BangazonAPI.Migrations
+namespace Bangazon.Migrations
 {
     [DbContext(typeof(BangazonContext))]
-    [Migration("20161017162847_InitialCreate")]
+    [Migration("20161018185649_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

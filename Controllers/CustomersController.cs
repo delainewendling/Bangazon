@@ -77,7 +77,7 @@ namespace BangazonAPI.Controllers
         }
         //POST requests use this method
         //POST api/values
-        //Anything wil [] is a decorator
+        //Anything with [] is a decorator
         [HttpPost]
         public IActionResult Post([FromBody] Customer customer)
         {

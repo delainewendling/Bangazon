@@ -6,15 +6,22 @@
 </head>
 
 <body ng-app="Bangazon" ng-cloak>
-    <h1> Welcome to Bangazon! </h1>
+    <div ng-include="'partials/navbar.html'"></div>
     <div ng-view></div>
     <!--Third Party Libraries-->
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/angular-route/angular-route.min.js"></script>
+    <script src="node_modules/angular-bootstrap/ui-bootstrap.min.js"></script>
     <!--Root File-->
     <script src="app/app.js"></script>
     <!-- Providers -->
     <script src="app/factories/CustomerFactory.js"></script>
+    <script src="app/factories/ProductFactory.js"></script>
     <!-- Controllers -->
     <script src="app/controllers/CustomerCtrl.js"></script>
+    <script src="app/controllers/HomeCtrl.js"></script>
+    <script src="app/controllers/ProductCtrl.js"></script>
+
 </body>
 
 </html>

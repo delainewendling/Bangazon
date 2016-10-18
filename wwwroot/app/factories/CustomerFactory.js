@@ -2,7 +2,7 @@
 
 app.factory("CustomerFactory", ($q, $http) => {
 
-    let customers = () => {
+    let getCustomers = () => {
         return $q((resolve, reject) => {
             $http.get("/customers")
                 .success((customerData) => {
@@ -26,5 +26,17 @@ app.factory("CustomerFactory", ($q, $http) => {
         });
     };
 
-    return { getCustomers, getSingleCustomer };
+    let newCustomer = (customerObj) => {
+        return $q((resolve, reject) => {
+            $http.post(`/customers`, angular.toJson(customerObj))
+                .success((customerData) => {
+                    resolve(customerData);
+                })
+                .error((error) => {
+                    reject(error);
+                });
+        });
+    };
+
+    return { getCustomers, getSingleCustomer, newCustomer };
 });

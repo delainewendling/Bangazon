@@ -1,3 +1,10 @@
-<div ng-repeat="customer in customers">
-    {{customer.FirstName}} {{customer.LastName}}
+<div>
+    <h1> Customers </h1>
 </div>
+<div ng-repeat="customer in customers">
+    {{customer.firstName}} {{customer.lastName}}
+</div>
+
+<input type="text" placeholder="First Name" ng-model="customer.firstName">
+<input type="text" placeholder="Last Name" ng-model="customer.lastName">
+<button ng-click="addCustomer()"> Add a Customer </button>
